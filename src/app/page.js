@@ -21,7 +21,7 @@ const page = () => {
   return (
     <>
    
-<div className='flex justify-between'>
+<div className=''>
 <Container 
       header={
         <Header
@@ -60,7 +60,7 @@ s
     >
 
 
-  <div className='flex justify-between'>
+  <div className='mb-[1.5rem]'>
     
     <Header variant='h3' description={14} >Running</Header>
     <Header variant='h3' description={14} >Running</Header>

@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 
 import Input from "@cloudscape-design/components/input";
 
@@ -21,6 +21,33 @@ import {
     SplitPanel,
   } from '@cloudscape-design/components';
 const page = () => {
+  const [adharrNum,SetAdhaarNum] = useState('')
+
+  const [rationNum,SetRationNum] = useState('')
+
+  const [mobNum,setMobNum] = useState('')
+
+  const handleAdhaarChange = (event) => {
+    const value = event.detail.value;
+    if (/^\d*$/.test(value)) { // Allow only digits
+      SetAdhaarNum(value);
+    }
+  };
+
+  const handleRationChange = (event) => {
+    const value = event.detail.value;
+    if (/^\d*$/.test(value)) { // Allow only digits
+      SetRationNum(value);
+    }
+  };
+
+  const handleMobChange = (event) => {
+    const value = event.detail.value;
+    if (/^\d*$/.test(value)) { // Allow only digits
+      setMobNum(value);
+    }
+  };
+
   return (
     <div>
 
@@ -47,15 +74,15 @@ const page = () => {
             <div className='flex justify-between'>
 
              <FormField  label="Search Adhar Number*">
-              <Input  type='number' placeholder='Please enter beneficiary adhar number'/>
+              <Input  type='number' value={adharrNum} onChange={handleAdhaarChange} placeholder='Please enter beneficiary adhar number'/>
             </FormField>
 
             <FormField label="Search Ration Number*">
-            <Input type='text' placeholder='Please enter beneficiary Ration number'/>
+            <Input  type='number' value={rationNum} onChange={handleRationChange} placeholder='Please enter beneficiary adhar number'/>
             </FormField>
 
             <FormField label="Search Mobile Number*">
-              <Input type='number' placeholder='Search Mobile Number' />
+              <Input type='number' value={mobNum} onChange={handleMobChange} placeholder='Search Mobile Number' />
             </FormField>
 
             <FormField label="Search By Reference*">
@@ -70,7 +97,7 @@ const page = () => {
 <div className='mt-[1.5rem]'>
 <Container>
 
-table sooooon
+No Search Results.....
 </Container>
 </div>
 
