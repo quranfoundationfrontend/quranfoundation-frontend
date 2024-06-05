@@ -1,53 +1,103 @@
 import React from 'react'
 
-import {
-  AppLayout,
-  BreadcrumbGroup,
-  Button,
-  ButtonDropdown,
-  Container,
-  ContentLayout,
-  Flashbar,
-  Header,
-  HelpPanel,
-  Link,
-  SideNavigation,
-  SpaceBetween,
-  SplitPanel,
-} from '@cloudscape-design/components';
-
+import TopNavigation from "@cloudscape-design/components/top-navigation";
+// import image from "../Assets/"
 const TQHeader = () => {
   return (
-    <div className='bg-[#192534] justify-between pl-6 pr-6 items-center flex w-[100%] mb-1 h-[50px]'>
-<h2 className='text-[#fff]'>Quran Foundation</h2>
-  
-{/* header buttons */}
-  <div>
-  <ButtonDropdown variant='normal'
-      items={[
-        { text: "Apply ESP Application",  id: "esp", iconName:'add-plus', disabled: false },
-   
-        { text: "Apply HSP Application", id: "hsp",iconName:'add-plus', disabled: false },
-        
-        { text: "Apply WSP Application", id: "wsp", iconName:'add-plus', disabled: false },
+    <div className='mb-[0.5rem]'>
 
-        { text: "Apply EDP Application", id: "edp", iconName:'add-plus',disabled: false },
-      ]}
-    >
-    New Application
-    </ButtonDropdown>
-
-    <ButtonDropdown variant='icon'  
-      items={[
-        { text: "Login Another acc", id: "mv", disabled: false },
-        { text: "Logout", id: "rm", disabled: false },
-      
-      ]}
-    >
-    New Application
-    </ButtonDropdown>
-
-  </div>
+    <TopNavigation
+    identity={{
+      // href: "#",
+      title: "The Quran Foundation",
+      logo: {
+        src: "https://thequranfoundation.org/wp-content/uploads/2024/02/The_Quran_Foundation_TQF_Organization_Charity_Donation_Logo.png",
+        alt: "Quran Foundation Logo"
+      }
+    }}
+    utilities={[
+      {
+        type: "menu-dropdown",
+        iconName: "add-plus",
+        ariaLabel: "New Application",
+        title: "New Application",
+        items: [
+          {
+            
+            id: "esp",
+            text: "ESP Application",
+            href: '/Applications/add-esp'
+            
+          },
+          {
+            id: "hsp",
+            text: "HSP Application"
+          },
+          {
+            id: "wsp",
+            text: "WSP Application"
+          },
+          {
+            id: "edp",
+            text: "EDP Application"
+          }
+        ]
+      },
+     
+      {
+        type: "menu-dropdown",
+        iconName: "settings",
+        ariaLabel: "Settings",
+        title: "Settings",
+        items: [
+          {
+            id: "settings-org",
+            text: "Organizational settings"
+            
+          },
+          {
+            id: "settings-project",
+            text: "Project settings"
+          }
+        ]
+      },
+      {
+        type: "menu-dropdown",
+        text: "John Doe",
+        description: "email@example.com",
+        iconName: "user-profile",
+        items: [
+          { id: "profile", text: "Profile" },
+          { id: "preferences", text: "Preferences" },
+          { id: "security", text: "Security" },
+          {
+            id: "support-group",
+            text: "Support",
+            items: [
+              {
+                id: "documentation",
+                text: "Documentation",
+                href: "#",
+                external: true,
+                externalIconAriaLabel:
+                  " (opens in new tab)"
+              },
+              { id: "support", text: "Support" },
+              {
+                id: "feedback",
+                text: "Feedback",
+                href: "#",
+                external: true,
+                externalIconAriaLabel:
+                  " (opens in new tab)"
+              }
+            ]
+          },
+          { id: "signout", text: "Sign out" }
+        ]
+      }
+    ]}
+  />
     </div>
 
   )

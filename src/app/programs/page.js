@@ -30,7 +30,7 @@ const page = () => {
     const [
         selectedItems,
         setSelectedItems
-      ] = useState([{ name: "" }]);
+      ] = UseState([{ name: "" }]);
   return (
     <Container>
   <Table

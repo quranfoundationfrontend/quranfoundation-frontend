@@ -64,7 +64,7 @@ const page = () => {
               <Button formAction="none" Link="#dashboard" variant="link">
                 Cancel
               </Button>
-              <Button variant="primary">Search</Button>
+              <Button  variant="primary">Search</Button>
             </SpaceBetween>
           }
           header={

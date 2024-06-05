@@ -3,22 +3,23 @@ import PieChart from "@cloudscape-design/components/pie-chart";
 import Box from "@cloudscape-design/components/box";
 import Button from "@cloudscape-design/components/button";
 
-const DonorsCharts = () => {
+const RaisedTypesCharts = () => {
     return (
         <PieChart 
         data={[
-            { title: "Individual", value: 10 },
-            { title: "Organizations", value: 1 },
+            { title: "One Time Donors", value: 10 },
+            { title: "Repeat Donors", value: 6 },
  
-  
         ]}
+
 
       // hideLegend
       // hideFilter
-hideLegend
+// hideLegend
 hideFilter
       innerMetricValue="100%"
-      size="small"
+      size={275}
+      
       variant="donut"
       empty={
           <Box textAlign="center" color="inherit">
@@ -40,4 +41,4 @@ hideFilter
     />
   );
 }
-export default DonorsCharts
+export default RaisedTypesCharts

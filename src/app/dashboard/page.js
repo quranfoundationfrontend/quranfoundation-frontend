@@ -2,44 +2,66 @@
 import React from 'react'
 
 
-
 import {
-    AppLayout,
+  Box,
     BreadcrumbGroup,
     Button,
-    Cards,
     Container,
-    ContentLayout,
-    Flashbar,
+   
+    ExpandableSection,
+   
     Header,
-    HelpPanel,
-    Link,
-    SideNavigation,
+    Pagination,
     SpaceBetween,
-    SplitPanel,
+    Table,
+    TextFilter,
   } from '@cloudscape-design/components';
 import BeneficiariesChart from '@/components/Charts/BeneficiariesChart';
 import DonorsCharts from '@/components/Charts/DonorsCharts';
+import DemoLineChart from '@/components/Charts/DemoLineChart';
+import Link from 'next/link';
+import EventsTable from '@/components/TableComponents/EventsTable';
+import Volunteer from '@/components/Charts/Volunteer ';
+import BeneficiariesPieChart from '@/components/Charts/BeneficiariesPieChart';
+// import  from '@/components/Charts/RaisedByTYpe';
+import RaisedTypesCharts from '@/components/Charts/RaisedTypesCharts';
+import WidgetCards from '@/widgets/WidgetCards';
+import LiveePrograms from '@/widgets/LivePrograms';
+
+
+
 const page = () => {
+
+  const accoundBalance = 1223;
+  const cashINHand = 45666
+  const donors = 223;
+  const beneficiaries = 1243
+
   return (
    <>
     <div className=' w-[100%] '>
    
+<div className='flex justify-between'>
 
+<div className='w-[70%]'>
    <Container 
+  
    
-     header={
+   header={
        <Header
          variant="h2"
-         description="Quran Foundation Desc sooon"
+         description="A summary of our valued donors and their contributions."
        >
-        The Quran Foundation Stats
+        The Quran Foundation's Financial Overview
        </Header>
      }
    >
-
+<div>
+  <WidgetCards/>
+</div>
    
-<div className='flex justify-between' >
+{/* <div className='flex justify-between' >
+
    <div className='flex  p-3 flex-col gap-4'> 
      <span className='font-bold text-[1rem]'>Donors</span>
      <span className=' underline font-bold text-[#0972d3] text-[2rem]'>123</span>
@@ -53,20 +75,51 @@ const page = () => {
      <span className='font-bold text-[1rem] s'>Total Cash In Hand
 
 </span>
-     <span className=' underline font-bold text-[#0972d3] text-[2rem]'>123</span>
+     <span className=' underline font-bold text-[#0972d3] text-[2rem]'>{cashINHand} $</span>
    </div>
    
    <div className='flex p-3 flex-col gap-4'>
-     <span className='font-bold text-[1rem]'>Total Account Balance
+     <span className='font-bold text-[1rem]'>Account Balance
 
 </span>
-     <span className=' underline font-bold text-[#0972d3] text-[2rem]'>123</span>
+     <span className=' underline font-bold text-[#0972d3] text-[2rem]'>{accoundBalance} $ </span>
    </div>
       
- </div>  
+ </div>   */}
 
    </Container>
+   </div>
 
+   <div className='w-[29%]'>
+<Container 
+fitHeight={true}
+header={
+  <Header
+    variant="h2"
+    description="ext evebut also the leap into electronic"
+
+  >
+  TQF's All-Time Revenue
+  </Header>
+}
+>
+
+{/* <div className='flex p-3 flex-col gap-4'>
+     <span className='font-bold text-[1rem]'>Total Revenue
+
+</span>
+     <span className=' underline font-bold text-[#0972d3] text-[2rem]'>{accoundBalance} $ </span>
+   </div> */}
+
+
+<LiveePrograms/>
+
+
+
+</Container>
+   </div>
+
+   </div>
 {/* <Container 
   header={
    <Header
@@ -81,62 +134,277 @@ const page = () => {
  
 </div>
 
-{/* second section */}
-<div className='mt-4 flex-wrap justify-between flex'>
 
-  <div className='w-[60%] h-[auto]'>
-<Container 
-fitHeight={true}
-  header={
-    <Header
-    variant="h2"
-    description="Beneficiaries By Type "
-    >
-    Donations vs Distributions
-   </Header>}
+
+
+
+
+
+
+
+
+{/* secon section starts */}
+
+<div className='h-[420px] flex w-full flex-wrap justify-between mt-[1rem]'>
+
+<div className='w-[60%] h-full'>
+<Container fitHeight
+header={
+  <Header>
+    Raised By Month
+  </Header>
+}
 >
 <BeneficiariesChart/>
 </Container>
-  </div>
+</div>
 
-<div className='w-[39%]'>
-
-<Container 
+<div className='w-[38%] h-full'>
+<Container fitHeight
 header={
-  <Header
-    variant="h2"
-    description="Beneficiaries By Type "
-    >
-    Donations vs Distributions
-   </Header>
+  <Header>
+    Raised By Type
+  </Header>
 }
 >
-<DonorsCharts />
+<RaisedTypesCharts/>
 </Container>
 </div>
 
 </div>
 
-{/* temoporyyy chartz */}
+
+{/* secon section Endz */}
+
+
+
 <div className='flex  w-[100%] justify-between mt-[1rem]'>
   <div className='w-[32%]'>
-  <Container>
+  <Container 
+  header={
+    <Header>
+      Donors By Type 
+    </Header>
+  }
+  >
 <DonorsCharts/>
   </Container>
   </div>
 
 
   <div className='w-[32%]'>
-  <Container>
-<DonorsCharts/>
+  <Container
+    header={
+      <Header>
+         Beneficiaries by Type 
+      </Header>
+    }
+  >
+<BeneficiariesPieChart/>
   </Container>
   </div>
 
   <div className='w-[32%]'>
-  <Container>
-<DonorsCharts/>
+  <Container
+    header={
+      <Header>
+         Volunteer by Type 
+      </Header>
+    }
+  >
+<Volunteer/>
   </Container>
   </div>
+
+</div>
+
+
+{/* last sec */}
+
+<div className='flex justify-between mt-[1rem]'>
+
+<div className='w-[49%]'>
+  <Container>
+
+<Table  
+variant='borderless'
+      columnDefinitions={[
+        {
+          id: "variable",
+          header: "Variable nsame",
+          cell: e => e.name,
+          width: 170,
+          minWidth: 165,
+          sortingField: "name",
+          isRowHeader: true
+        
+        },
+        {
+          id: "type",
+          header: "Type",
+          cell: e => e.type,
+          width: 110,
+          minWidth: 110,
+          sortingField: "type"
+        },
+        {
+          id: "size",
+          header: "Size",
+          cell: e => e.size,
+          width: 110,
+          minWidth: 90
+        },
+      ]}
+      enableKeyboardNavigation
+      items={[
+        {
+          name: "Item 1",
+          alt: "First",
+          type: "1A",
+          size: "Small"
+        },
+        {
+          name: "Item 2",
+          alt: "Second",
+          type: "1B",
+          size: "Large"
+        },
+        {
+          name: "Item 3",
+          alt: "Third",
+          type: "1A",
+          size: "Large"
+        },
+        {
+          name: "Item 4",
+          alt: "Fourth",
+          type: "2A",
+          size: "Small"
+        },
+        {
+          name: "Item 5",
+          alt: "-",
+          type: "2A",
+          size: "Large"
+        },
+        {
+          name: "Item 6",
+          alt: "Sixth",
+          type: "1A",
+          size: "Small"
+        }
+      ]}
+      loadingText="Loading resources"
+      resizableColumns
+      selectedItems={[{ name: "Item 2" }]}
+    
+      filter={
+        <TextFilter
+          filteringPlaceholder="Find resources"
+          filteringText=""
+        />
+      }
+      header={
+        <Header>Table with resizable columns</Header>
+      }
+      pagination={
+        <Pagination currentPageIndex={1} pagesCount={1} />
+      }
+    />
+  </Container>
+ 
+</div>
+
+<div className='w-[49%]'>
+<Container fitHeight={true}>
+<Table
+variant='borderless'
+      columnDefinitions={[
+        {
+          id: "variable",
+          header: "Variable name",
+          cell: item => (
+            <Link href="#">{item.name || "-"}</Link>
+          ),
+          sortingField: "name",
+          isRowHeader: true
+        },
+        {
+          id: "alt",
+          header: "Text value",
+          cell: item => item.alt || "-",
+          sortingField: "alt"
+        },
+        {
+          id: "description",
+          header: "Description",
+          cell: item => item.description || "-"
+        }
+      ]}
+      enableKeyboardNavigation
+      items={[
+        {
+          name: "Item 1",
+          alt: "First",
+          description: "This is the first item",
+          type: "1A",
+          size: "Small"
+        },
+        {
+          name: "Item 2",
+          alt: "Second",
+          description: "This is the second item",
+          type: "1B",
+          size: "Large"
+        },
+        {
+          name: "Item 3",
+          alt: "Third",
+          description: "-",
+          type: "1A",
+          size: "Large"
+        },
+        {
+          name: "Item 4",
+          alt: "Fourth",
+          description: "This is the fourth item",
+          type: "2A",
+          size: "Small"
+        },
+        {
+          name: "Item 5",
+          alt: "-",
+          description:
+            "This is the fifth item with a longer description",
+          type: "2A",
+          size: "Large"
+        },
+        {
+          name: "Item 6",
+          alt: "Sixth",
+          description: "This is the sixth item",
+          type: "1A",
+          size: "Small"
+        }
+      ]}
+      loadingText="Loading resources"
+      sortingDisabled
+      empty={
+        <Box
+          margin={{ vertical: "xs" }}
+          textAlign="center"
+          color="inherit"
+        >
+          <SpaceBetween size="m">
+            <b>No resources</b>
+            <Button>Create resource</Button>
+          </SpaceBetween>
+        </Box>
+      }
+      header={<Header> Simple table </Header>}
+    />
+</Container>
+</div>
 
 </div>
    </>
