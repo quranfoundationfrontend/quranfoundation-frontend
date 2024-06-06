@@ -30,7 +30,7 @@ import LiveePrograms from '@/widgets/LivePrograms';
 
 
 
-const page = () => {
+const Page = () => {
 
   const accoundBalance = 1223;
   const cashINHand = 45666
@@ -411,4 +411,4 @@ variant='borderless'
   )
 }
 
-export default page
+export default Page

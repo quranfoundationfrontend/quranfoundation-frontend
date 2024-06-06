@@ -55,7 +55,7 @@ const Page = () => {
           { 
             id: "action", 
             header: "Action", 
-            cell: e => <Button variant='icon'  iconName='edit'></Button>,
+            cell: e => <Button variant='icon'  iconName=''></Button>,
           }
         ]}
         columnDisplay={[

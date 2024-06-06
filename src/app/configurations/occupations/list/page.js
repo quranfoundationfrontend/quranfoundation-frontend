@@ -5,9 +5,26 @@ import { Table, Box, SpaceBetween, Button, TextFilter, Header, ButtonDropdown, P
 const Page = () => {
   const [selectedItems, setSelectedItems] = useState([]);
 
+  const items = [
+    { industryName: "Agriculture", id: "1" },
+    { industryName: "Automotive", id: "2" },
+    { industryName: "Banking", id: "3" },
+    { industryName: "Construction", id: "4" },
+    { industryName: "Education", id: "5" },
+    { industryName: "Energy", id: "6" },
+    { industryName: "Entertainment", id: "7" },
+    { industryName: "Finance", id: "8" },
+    { industryName: "Food & Beverage", id: "9" },
+
+  
+  ];
+
   return (
     <div>
       <Table
+     onRowClick={()=>{
+      console.log("clissssss")
+     }}
         onSelectionChange={({ detail }) =>
           setSelectedItems(detail.selectedItems)
         }
@@ -19,30 +36,15 @@ const Page = () => {
               selectedItems.length === 1 ? "item" : "items"
             } selected`,
           itemSelectionLabel: ({ selectedItems }, item) =>
-            item.beneficiaryType
+            item.industryName
         }}
         columnDefinitions={[
           {
-            id: "beneficiaryType",
-            header: "Beneficiary Type",
-            cell: e => e.beneficiaryType,
-            sortingField: "beneficiaryType",
+            id: "industryName",
+            header: "Industry Name",
+            cell: e => e.industryName,
+            sortingField: "industryName",
             isRowHeader: true
-          },
-          { 
-            id: "description", 
-            header: "Description", 
-            cell: e => e.description 
-          },
-          { 
-            id: "eligibilityCriteria", 
-            header: "Eligibility Criteria", 
-            cell: e => e.eligibilityCriteria 
-          },
-          { 
-            id: "supportProgram", 
-            header: "Support Program", 
-            cell: e => e.supportProgram
           },
           {
             id: "actions",
@@ -67,31 +69,14 @@ const Page = () => {
           }
         ]}
         columnDisplay={[
-          { id: "beneficiaryType", visible: true },
-          { id: "description", visible: true },
-          { id: "eligibilityCriteria", visible: true },
-          { id: "supportProgram", visible: true },
+          { id: "industryName", visible: true },
           { id: "actions", visible: true }
         ]}
         enableKeyboardNavigation
-        items={[
-          {
-            beneficiaryType: "Education",
-            description: "Education support",
-            eligibilityCriteria: "Students",
-            supportProgram: "Scholarship"
-          },
-          {
-            beneficiaryType: "Healthcare",
-            description: "Healthcare services",
-            eligibilityCriteria: "Low-income families",
-            supportProgram: "Medical Assistance"
-          },
-          // Add more items here
-        ]}
-        loadingText="Loading beneficiary types..."
+        items={items}
+        loadingText="Loading industries..."
         selectionType="multi"
-        trackBy="beneficiaryType"
+        trackBy="industryName"
         empty={
           <Box
             margin={{ vertical: "xs" }}
@@ -99,14 +84,14 @@ const Page = () => {
             color="inherit"
           >
             <SpaceBetween size="m">
-              <b>No beneficiary types found</b>
-              <Button>Add Beneficiary Type</Button>
+              <b>No industries found</b>
+              <Button>Add Industry</Button>
             </SpaceBetween>
           </Box>
         }
         filter={
           <TextFilter
-            filteringPlaceholder="Find beneficiary types"
+            filteringPlaceholder="Find industries"
             filteringText=""
           />
         }
@@ -114,8 +99,8 @@ const Page = () => {
           <Header
             counter={
               selectedItems.length
-                ? "(" + selectedItems.length + ")"
-                : ""
+                ? "(" + selectedItems.length + "/22)"
+                : "(22)"
             }
             actions={
               <SpaceBetween
@@ -139,16 +124,16 @@ const Page = () => {
                   Actions
                 </ButtonDropdown>
                 <Button variant="primary">
-                  Add Beneficiary Type
+                  Add Industry
                 </Button>
               </SpaceBetween>
             }
           >
-            Beneficiary Types List
+            Industries List
           </Header>
         }
         pagination={
-          <Pagination currentPageIndex={1} pagesCount={1} />
+          <Pagination currentPageIndex={1} pagesCount={3} />
         }
         preferences={
           <CollectionPreferences
@@ -158,18 +143,15 @@ const Page = () => {
             preferences={{
               pageSize: 10,
               contentDisplay: [
-                { id: "beneficiaryType", visible: true },
-                { id: "description", visible: true },
-                { id: "eligibilityCriteria", visible: true },
-                { id: "supportProgram", visible: true },
+                { id: "industryName", visible: true },
                 { id: "actions", visible: true }
               ]
             }}
             pageSizePreference={{
               title: "Page size",
               options: [
-                { value: 10, label: "10 beneficiary types" },
-                { value: 20, label: "20 beneficiary types" }
+                { value: 10, label: "10 industries" },
+                { value: 20, label: "20 industries" }
               ]
             }}
             wrapLinesPreference={{}}
@@ -178,13 +160,10 @@ const Page = () => {
             contentDisplayPreference={{
               options: [
                 {
-                  id: "beneficiaryType",
-                  label: "Beneficiary Type",
+                  id: "industryName",
+                  label: "Industry Name",
                   alwaysVisible: true
                 },
-                { id: "description", label: "Description" },
-                { id: "eligibilityCriteria", label: "Eligibility Criteria" },
-                { id: "supportProgram", label: "Support Program" },
                 { id: "actions", label: "Actions" }
               ]
             }}

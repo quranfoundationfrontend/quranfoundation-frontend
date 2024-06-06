@@ -12,7 +12,7 @@ import ButtonDropdown from "@cloudscape-design/components/button-dropdown";
 import Pagination from "@cloudscape-design/components/pagination";
 import CollectionPreferences from "@cloudscape-design/components/collection-preferences";
 
-const page = () => {
+const Page = () => {
   const [selectedItems, setSelectedItems] = useState([]);
 
   return (
@@ -227,4 +227,4 @@ const page = () => {
   )
 }
 
-export default page ;
+export default Page ;

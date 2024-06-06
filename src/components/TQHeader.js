@@ -63,8 +63,8 @@ const TQHeader = () => {
       },
       {
         type: "menu-dropdown",
-        text: "John Doe",
-        description: "email@example.com",
+        text: "Mohd kareem Uddin",
+        description: "mohdkareemuddin@gmail.com",
         iconName: "user-profile",
         items: [
           { id: "profile", text: "Profile" },

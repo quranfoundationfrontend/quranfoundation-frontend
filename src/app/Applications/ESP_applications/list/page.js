@@ -9,7 +9,7 @@ import Header from "@cloudscape-design/components/header";
 import Pagination from "@cloudscape-design/components/pagination";
 import CollectionPreferences from "@cloudscape-design/components/collection-preferences";
 
-export default () => {
+const Page = () => {
   const [selectedItems, setSelectedItems] = React.useState([]);
 
   return (
@@ -244,3 +244,5 @@ export default () => {
     />
   );
 };
+
+export default Page;

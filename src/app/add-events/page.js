@@ -22,7 +22,7 @@ import {
     SplitPanel,
     Textarea,
   } from '@cloudscape-design/components';
-const page = () => {
+const Page = () => {
     const [value, setValue] = useState([]);
 
   const [adharrNum,SetAdhaarNum] = useState('')
@@ -144,4 +144,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

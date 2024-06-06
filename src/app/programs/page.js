@@ -26,7 +26,7 @@ import Pagination from "@cloudscape-design/components/pagination";
 import CollectionPreferences from "@cloudscape-design/components/collection-preferences"
 
 
-const page = () => {
+const Page = () => {
     const [
         selectedItems,
         setSelectedItems
@@ -285,4 +285,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
