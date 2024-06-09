@@ -20,7 +20,7 @@ import {
     SpaceBetween,
     SplitPanel,
   } from '@cloudscape-design/components';
-const page = () => {
+const Page = () => {
   const [adharrNum,SetAdhaarNum] = useState('')
 
   const [rationNum,SetRationNum] = useState('')
@@ -106,4 +106,4 @@ No Search Results.....
   )
 }
 
-export default page
+export default Page
